@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - cd cicd # change directory
+      - echo "First step to be built"
+      - bash configure-named-profile.sh # configure named profile
+
+
+  # build:
+  #   commands:
+  #     - echo build started on `date`
+  #     - bash deploy-k8s.sh
+  #     - echo build finished on `date`
