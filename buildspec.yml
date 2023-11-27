@@ -1,7 +1,7 @@
 version: 0.2
 
 phases:
-  install"
+  install:
     commands:
       - cd cicd # change directory
       - echo "First step to be built"
