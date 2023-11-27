@@ -6,6 +6,7 @@ phases:
       - cd cicd # change directory
       - echo "First step to be built"
       - bash configure-named-profile.sh # configure named profile
+      - bash k8s-tools-install.sh
 
 
   # build:
