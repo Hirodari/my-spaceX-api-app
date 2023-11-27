@@ -7,10 +7,11 @@ phases:
       - echo "First step to be built"
       - bash configure-named-profile.sh # configure named profile
       - bash k8s-tools-install.sh
-      
+
   pre_build:
     commands:
-      
+      - pwd # show the current dir
+      - bash push-to-ecr.sh
 
 
   # build:
