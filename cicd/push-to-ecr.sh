@@ -4,7 +4,7 @@
 set -eu
 
 # build image 
-docker build -t $AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/spacex-flask:latest .
+docker build -t $AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com/spacex-flask:latest ../.
 
 # login to ecr
 aws ecr get-login-password | docker login --username AWS --password-stdin $AWS_ACCOUNT.dkr.ecr.us-east-1.amazonaws.com
