@@ -6,7 +6,7 @@ phases:
       - cd cicd # change directory
       - bash configure-named-profile.sh 
       - bash k8s-tools-install.sh
-
+  # tomorrow let's make this pipeline more smart
   pre_build:
     commands:
       - echo pre-build started on `date`
@@ -15,7 +15,7 @@ phases:
       - echo "let's create k8s cluster called spacex-cluster" 
       # - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
       # - make delete_application
-      - make create_cluster
+      # - make create_cluster
       - echo build finished on `date`
 
   build:
@@ -23,7 +23,8 @@ phases:
       - echo build started on `date`
       # - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
       - kubectl get nodes
-      - make deploy_ingress_nginx
-      - make deploy_cert_manager
+      # - make deploy_ingress_nginx
+      # - make deploy_cert_manager
       - kubectl get svc
+      - make deploy_application
       - echo build finished on `date`
