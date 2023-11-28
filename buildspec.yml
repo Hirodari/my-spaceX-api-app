@@ -10,10 +10,12 @@ phases:
 
   pre_build:
     commands:
+      - echo build started on `date`
       - echo "this where we are going to run bash push-to-ecr.sh"
       - bash push-to-ecr.sh
       - echo "let's create k8s cluster called spacex-cluster" # just for test
       - make delete_cluster
+      - echo build finished on `date`
 
       
   # build:
