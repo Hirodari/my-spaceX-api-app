@@ -11,7 +11,9 @@ phases:
   pre_build:
     commands:
       - pwd # show the current dir
-      - bash push-to-ecr.sh
+      - "this where we are going to run bash push-to-ecr.sh"
+      - echo "let's create k8s cluster called spacex-cluster"
+      - make create_cluster
 
 
   # build:
