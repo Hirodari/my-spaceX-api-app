@@ -21,8 +21,6 @@ phases:
       - echo build started on `date`
       - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
       - kubectl get nodes
-      - make enable_iam_sa_provider
-      - make deploy_ingress_nginx
-      - make deploy_cert_manager
+      - make deploy_application
       - kubectl get svc
       - echo build finished on `date`

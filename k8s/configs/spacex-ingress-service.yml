@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: "a45a71542594e4c048fb7e0d3ae5cb68-cbbfa2a17f79c65a.elb.us-east-1.amazonaws.com"
+    - host: "a2985fd236da04967b46fa69c279a24f-fdf447817bcde304.elb.us-east-1.amazonaws.com"
       http:
         paths:
           - path: /
@@ -30,5 +30,5 @@ spec:
                     number: 8080
   tls:
   - hosts:
-    - "a45a71542594e4c048fb7e0d3ae5cb68-cbbfa2a17f79c65a.elb.us-east-1.amazonaws.com"
+    - "a2985fd236da04967b46fa69c279a24f-fdf447817bcde304.elb.us-east-1.amazonaws.com"
     secretName: spacex-cert
