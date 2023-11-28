@@ -11,19 +11,19 @@ phases:
     commands:
       - echo pre-build started on `date`
       - echo "this where we are going to run bash push-to-ecr.sh"
-      - echo $AWS_ACCOUNT
       # - bash push-to-ecr.sh
-      # - echo "let's create k8s cluster called spacex-cluster" 
+      - echo "let's create k8s cluster called spacex-cluster" 
       # - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
       # - make delete_application
-      # - make delete_cluster
-      # - echo build finished on `date`
+      - make create_cluster
+      - echo build finished on `date`
 
-  # build:
-  #   commands:
-  #     - echo build started on `date`
-  #     - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
-  #     - kubectl get nodes
-  #     - make deploy_application
-  #     - kubectl get svc
-  #     - echo build finished on `date`
+  build:
+    commands:
+      - echo build started on `date`
+      # - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
+      - kubectl get nodes
+      - make deploy_ingress_nginx
+      - make deploy_cert_manager
+      - kubectl get svc
+      - echo build finished on `date`
