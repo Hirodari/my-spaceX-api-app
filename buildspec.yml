@@ -13,7 +13,7 @@ phases:
       - echo "this where we are going to run bash push-to-ecr.sh"
       - echo "let's create k8s cluster called spacex-cluster"
       - echo $AWS_ACCOUNT
-      - make delete_cluster
+
       
   # build:
   #   commands:
