@@ -12,7 +12,7 @@ phases:
     commands:
       - echo "this where we are going to run bash push-to-ecr.sh"
       - echo "let's create k8s cluster called spacex-cluster"
-  
+      - echo $AWS_ACCESS_KEY_ID
   # build:
   #   commands:
   #     - echo build started on `date`
