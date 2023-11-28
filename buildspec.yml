@@ -12,7 +12,10 @@ phases:
     commands:
       - echo "this where we are going to run bash push-to-ecr.sh"
       - echo "let's create k8s cluster called spacex-cluster"
-      - make create_cluster  # create a cluster
+      - eksctl version
+      - kubectl version
+      - echo "checking aws creds"
+      - cat /root/.aws/config
 
 
   # build:
