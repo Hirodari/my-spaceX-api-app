@@ -2,7 +2,7 @@ create_cluster:
 	eksctl create cluster -f ../k8s/cluster.yaml
 
 delete_cluster:
-	eksctl delete cluster -f cluster.yaml
+	eksctl delete cluster -f ../k8s/cluster.yaml
 
 describe_cluster:
 	eksctl utils describe-stacks --region=us-east-1 --cluster=spacex-cluster
