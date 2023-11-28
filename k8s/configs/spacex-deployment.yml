@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spacex-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spaceX
+  template:
+    metadata:
+      labels:
+        app: spaceX
+    spec:
+      containers:
+        - name: spacex-visualization-app
+          image: 116429386222.dkr.ecr.us-east-1.amazonaws.com/spacex-flask:latest

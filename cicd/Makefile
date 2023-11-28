@@ -35,20 +35,19 @@ create_service_account:
       --approve
 	  
 deploy_ingress_nginx:
-	kubectl apply ingress-nginx-deploy.yaml
+	kubectl apply ../k8s/ingress-nginx-deploy.yaml
 
 deploy_cert_manager:
-	kubectl apply cert-manager.yaml
+	kubectl apply ../k8s/cert-manager.yaml
 
 revert_cert_manager:
-	kubectl delete \
-		-f https://github.com/jetstack/cert-manager/releases/download/v1.1.1/cert-manager.yaml
-
+	kubectl delete ../k8s/cert-manager.yaml
+		
 deploy_ingress_controller:
-	kubectl apply -f v2_2_0_full.yaml
+	kubectl apply -f ../k8s/ingress-nginx-deploy.yaml
 
 deploy_application:
 	# kustomize build ./k8s | kubectl apply -f -
-	kubectl apply -f configs/
+	kubectl apply -f ../k8s/configs/
 delete_application:
-	kubectl delete -f configs/
+	kubectl delete -f ../k8s/configs/

@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: spacex-ingress
+  annotations: 
+    cert-manager.io/cluster-issuer: letsencrypt
+  # annotations:
+    # kubernetes.io/ingress.class: alb
+    # alb.ingress.kubernetes.io/scheme: internet-facing
+    # alb.ingress.kubernetes.io/target-type: instance
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: "a45a71542594e4c048fb7e0d3ae5cb68-cbbfa2a17f79c65a.elb.us-east-1.amazonaws.com"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend: 
+              service:
+                name: spacex-service
+                port: 
+                  number: 5000
+          - path: "/hello-world"
+            pathType: Prefix
+            backend:
+              service:
+                name: hello-world-service
+                port: 
+                    number: 8080
+  tls:
+  - hosts:
+    - "a45a71542594e4c048fb7e0d3ae5cb68-cbbfa2a17f79c65a.elb.us-east-1.amazonaws.com"
+    secretName: spacex-cert
