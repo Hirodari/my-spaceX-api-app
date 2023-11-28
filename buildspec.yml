@@ -15,7 +15,7 @@ phases:
       - eksctl version
       - kubectl version --client
       - echo "checking aws creds"
-      - cat /root/.aws/config
+      - cat /root/.aws/credentials
 
 
   # build:
