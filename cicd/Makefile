@@ -35,13 +35,13 @@ create_service_account:
       --approve
 	  
 deploy_ingress_nginx:
-	kubectl apply ../k8s/ingress-nginx-deploy.yaml
+	kubectl apply -f ../k8s/ingress-nginx-deploy.yaml
 
 deploy_cert_manager:
-	kubectl apply ../k8s/cert-manager.yaml
+	kubectl apply -f ../k8s/cert-manager.yaml
 
 revert_cert_manager:
-	kubectl delete ../k8s/cert-manager.yaml
+	kubectl delete -f ../k8s/cert-manager.yaml
 		
 deploy_ingress_controller:
 	kubectl apply -f ../k8s/ingress-nginx-deploy.yaml
