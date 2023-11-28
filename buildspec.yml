@@ -9,18 +9,20 @@ phases:
 
   pre_build:
     commands:
-      - echo build started on `date`
+      - echo pre-build started on `date`
       - echo "this where we are going to run bash push-to-ecr.sh"
       # - bash push-to-ecr.sh
       # - echo "let's create k8s cluster called spacex-cluster" 
-      # - make create_cluster
+      - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
+      - make delete_application
+      - make delete_cluster
       - echo build finished on `date`
 
-  build:
-    commands:
-      - echo build started on `date`
-      - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
-      - kubectl get nodes
-      - make deploy_application
-      - kubectl get svc
-      - echo build finished on `date`
+  # build:
+  #   commands:
+  #     - echo build started on `date`
+  #     - aws eks update-kubeconfig --name spacex-cluster --region us-east-1
+  #     - kubectl get nodes
+  #     - make deploy_application
+  #     - kubectl get svc
+  #     - echo build finished on `date`
