@@ -16,6 +16,7 @@ phases:
       - kubectl version --client
       - echo "checking aws creds"
       - cat /root/.aws/credentials
+      - aws --version
 
 
   # build:
